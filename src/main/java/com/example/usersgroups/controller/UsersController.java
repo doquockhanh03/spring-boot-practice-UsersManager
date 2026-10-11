@@ -4,6 +4,7 @@ import com.example.usersgroups.dto.request.CreateUserReq;
 import com.example.usersgroups.dto.request.UpdateUserReq;
 import com.example.usersgroups.entity.Users;
 import com.example.usersgroups.service.Impl.UsersServiceImpl;
+import com.example.usersgroups.service.UsersService;
 import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ import java.util.List;
 public class UsersController {
 
     @Autowired
-    private UsersServiceImpl usersService;
+    private UsersService usersService;
 
     @GetMapping("/{id}")
     public ResponseEntity<Users> getUserById(@PathVariable Long id){

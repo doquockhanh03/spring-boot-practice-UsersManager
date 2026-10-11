@@ -6,6 +6,7 @@ import com.example.usersgroups.dto.request.UpdateGroupUserReq;
 import com.example.usersgroups.dto.request.UpdateUserReq;
 import com.example.usersgroups.entity.GroupUsers;
 import com.example.usersgroups.entity.Users;
+import com.example.usersgroups.service.GroupUsersService;
 import com.example.usersgroups.service.Impl.GroupUsersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class GroupUsersController {
 
     @Autowired
-    private GroupUsersServiceImpl groupUsersService;
+    private GroupUsersService groupUsersService;
 
     @GetMapping("/{id}")
     public ResponseEntity<GroupUsers> getUserById(@PathVariable Long id){
