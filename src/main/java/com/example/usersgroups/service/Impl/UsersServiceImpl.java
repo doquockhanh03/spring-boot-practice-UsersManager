@@ -11,6 +11,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +20,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UsersServiceImpl implements UsersService {
 
-    @Autowired
-    private UsersRepo usersRepo;
+    private final UsersRepo usersRepo;
 
-    @Autowired
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     @Override
     public Users getUser(Long id) {

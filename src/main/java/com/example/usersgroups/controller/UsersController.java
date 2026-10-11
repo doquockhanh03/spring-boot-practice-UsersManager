@@ -5,6 +5,7 @@ import com.example.usersgroups.dto.request.UpdateUserReq;
 import com.example.usersgroups.entity.Users;
 import com.example.usersgroups.service.Impl.UsersServiceImpl;
 import com.example.usersgroups.service.UsersService;
+import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +15,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/users")
+@RequiredArgsConstructor
 public class UsersController {
 
-    @Autowired
-    private UsersService usersService;
+    private final UsersService usersService;
 
     @GetMapping("/{id}")
     public ResponseEntity<Users> getUserById(@PathVariable Long id){

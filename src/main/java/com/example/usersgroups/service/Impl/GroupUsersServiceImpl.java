@@ -7,16 +7,17 @@ import com.example.usersgroups.entity.GroupUsers;
 import com.example.usersgroups.entity.Users;
 import com.example.usersgroups.repository.GroupUsersRepo;
 import com.example.usersgroups.service.GroupUsersService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class GroupUsersServiceImpl implements GroupUsersService {
 
-    @Autowired
-    private GroupUsersRepo groupUsersRepo;
+    private final GroupUsersRepo groupUsersRepo;
 
     @Override
     public GroupUsers getGroupUser(Long id) {

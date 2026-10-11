@@ -8,16 +8,17 @@ import com.example.usersgroups.entity.GroupUsers;
 import com.example.usersgroups.entity.Users;
 import com.example.usersgroups.service.GroupUsersService;
 import com.example.usersgroups.service.Impl.GroupUsersServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/group-users")
+@RequiredArgsConstructor
 public class GroupUsersController {
 
-    @Autowired
-    private GroupUsersService groupUsersService;
+    private final GroupUsersService groupUsersService;
 
     @GetMapping("/{id}")
     public ResponseEntity<GroupUsers> getUserById(@PathVariable Long id){

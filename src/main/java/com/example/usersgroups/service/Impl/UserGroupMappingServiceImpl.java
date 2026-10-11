@@ -8,6 +8,7 @@ import com.example.usersgroups.repository.GroupUsersRepo;
 import com.example.usersgroups.repository.UserGroupMappingRepo;
 import com.example.usersgroups.repository.UsersRepo;
 import com.example.usersgroups.service.UserGroupMappingService;
+import lombok.RequiredArgsConstructor;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,16 +16,14 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
+@RequiredArgsConstructor
 public class UserGroupMappingServiceImpl implements UserGroupMappingService {
 
-    @Autowired
-    private UserGroupMappingRepo userGroupMappingRepo;
+    private final UserGroupMappingRepo userGroupMappingRepo;
 
-    @Autowired
-    private UsersRepo usersRepo;
+    private final UsersRepo usersRepo;
 
-    @Autowired
-    private GroupUsersRepo groupUsersRepo;
+    private final GroupUsersRepo groupUsersRepo;
 
     @Override
     public Users assignGroupUsers(AssignGroupUsersReq request) {
