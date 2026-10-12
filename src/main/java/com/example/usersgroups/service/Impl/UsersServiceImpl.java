@@ -11,6 +11,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,7 @@ public class UsersServiceImpl implements UsersService {
         return users.get();
     }
 
+    @Transactional
     @Override
     public Users createUser(CreateUserReq request) {
         if(request.getName().isEmpty() || request.getGender().isEmpty() ||
@@ -54,6 +56,7 @@ public class UsersServiceImpl implements UsersService {
         return usersRepo.save(users);
     }
 
+    @Transactional
     @Override
     public Users updateUser(Long id, UpdateUserReq request) {
         Optional<Users> userExist = usersRepo.findById(id);
@@ -82,6 +85,7 @@ public class UsersServiceImpl implements UsersService {
         return usersRepo.save(users);
     }
 
+    @Transactional
     @Override
     public void deleteUser(Long id) {
         Optional<Users> userExist = usersRepo.findById(id);

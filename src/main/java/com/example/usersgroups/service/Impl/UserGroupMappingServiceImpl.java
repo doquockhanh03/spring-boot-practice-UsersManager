@@ -8,6 +8,7 @@ import com.example.usersgroups.repository.GroupUsersRepo;
 import com.example.usersgroups.repository.UserGroupMappingRepo;
 import com.example.usersgroups.repository.UsersRepo;
 import com.example.usersgroups.service.UserGroupMappingService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class UserGroupMappingServiceImpl implements UserGroupMappingService {
 
     private final GroupUsersRepo groupUsersRepo;
 
+    @Transactional
     @Override
     public Users assignGroupUsers(AssignGroupUsersReq request) {
         if(request.getUserId() == null){
